@@ -14,13 +14,19 @@ export default function Bookmarked() {
       <h1 className="font-bold text-3xl pb-2">Bookmarked</h1>
       <hr />
       <div className="grid grid-cols-4 py-4 gap-4 items-stretch">
-        {bookmarked?.map((e, i) => (
-          <ArticlesCards
-            bookmarked={true}
-            re_render={() => setReRender(!reRender)}
-            {...bookmarked[i]}
-          />
-        ))}
+        {bookmarked.length > 0 ? (
+          bookmarked?.map((e, i) => (
+            <ArticlesCards
+              bookmarked={true}
+              re_render={() => setReRender(!reRender)}
+              {...bookmarked[i]}
+            />
+          ))
+        ) : (
+          <h1 className="text-2xl text-center font-bold w-full col-span-full">
+            Anda tidak memilik bookmark, silahkan jelajahi artikel kami!
+          </h1>
+        )}
       </div>
     </div>
   );

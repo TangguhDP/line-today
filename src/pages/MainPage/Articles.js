@@ -41,9 +41,17 @@ export default function Articles() {
       <h1 className="font-bold text-3xl pb-2">Articles</h1>
       <hr />
       <div className="grid grid-cols-4 py-4 gap-4 items-stretch">
-        {collectionArticles.map((e, i) => (
-          <ArticlesCards re_render={() => null} {...collectionArticles[i]} />
-        ))}
+        {choosedCategory && collectionArticles.length > 0 ? (
+          collectionArticles.map((e, i) => (
+            <ArticlesCards re_render={() => null} {...collectionArticles[i]} />
+          ))
+        ) : (
+          <h1 className="text-2xl text-center font-bold w-full col-span-full">
+            {!collectionArticles.length > 0 && choosedCategory
+              ? "Hmm sepertinya artikel pilihan developer tidak ada"
+              : `Pilih topik yang anda inginkan!`}
+          </h1>
+        )}
       </div>
     </div>
   );
