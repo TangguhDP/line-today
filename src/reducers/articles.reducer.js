@@ -1,7 +1,7 @@
 import { articlesConstants } from "../constants";
 
 const initialState = {
-  requesting: false,
+  requesting: true,
   lastModTime: 0,
   parentCategoryId: 0,
   categoryList: [],
@@ -21,6 +21,7 @@ export function articles(state = initialState, action) {
       };
     case articlesConstants.LIST_ARTICLES_SUCCESS:
       return {
+        ...state,
         requesting: false,
         lastModTime: action.articles.lastModTime,
         parentCategoryId: action.articles.parentCategoryId,
@@ -31,7 +32,6 @@ export function articles(state = initialState, action) {
     case articlesConstants.LIST_ARTICLES_FAILURE:
       return { requesting: false, msg: "Gagal mendapatkan artikel" };
     case articlesConstants.CHOOSE_ARTICLE:
-      console.log(action);
       return { ...state, choosedCategory: action.choosed };
     default:
       return { ...state };

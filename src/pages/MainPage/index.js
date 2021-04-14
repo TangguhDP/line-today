@@ -10,7 +10,7 @@ export default function MainPage() {
   return (
     <>
       {requesting && <LoadingScreen />}
-      <div className="flex flex-col space-y-4 items-center">
+      <div className="flex flex-col space-y-4 items-center pb-10">
         <CategoryList />
         <Articles />
       </div>

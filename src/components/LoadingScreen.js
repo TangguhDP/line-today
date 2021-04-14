@@ -4,7 +4,7 @@ export default function LoadingScreen() {
   return (
     <div
       aria-hidden="true"
-      className="w-full h-full bg-black opacity-50 fixed inset-0 z-100 flex items-center overflow-y-auto overscroll-none"
+      className="w-full h-full bg-black opacity-50 fixed inset-0 z-50 flex items-center overflow-y-auto overscroll-none"
     >
       <svg
         stroke="#fff"
